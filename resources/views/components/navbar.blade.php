@@ -41,7 +41,7 @@
                                 <div class="flex-grow-1">
                                     <span
                                         class="fw-semibold d-block">{{ Auth::check() ? Auth::user()->name : 'Guest' }}</span>
-                                    <small class="text-muted">Amin</small>
+                                    <small class="text-muted">Admin</small>
                                 </div>
                             </div>
                         </a>
