@@ -54,10 +54,10 @@
                 <div class="card">
                     <div class="card-body">
                         <!-- Logo -->
-                        <div class="app-brand justify-content-center">
+                        <div class="app-brand text-start">
                             <a href="{{ url('/') }}" class="app-brand-link gap-2">
-                                <span class="app-brand-logo demo">
-                                    <svg width="25" viewBox="0 0 25 42" version="1.1"
+                                {{-- <span class="app-brand-logo demo"> --}}
+                                {{-- <svg width="25" viewBox="0 0 25 42" version="1.1"
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <defs>
                                             <path
@@ -102,9 +102,10 @@
                                                 </g>
                                             </g>
                                         </g>
-                                    </svg>
-                                </span>
-                                <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                                    </svg> --}}
+                                <img src="{{ asset('images/logo.png') }}" width="100" alt="">
+                                {{-- </span> --}}
+                                {{-- <span class="app-brand-text demo text-body fw-bolder"></span> --}}
                             </a>
                         </div>
                         <!-- /Logo -->

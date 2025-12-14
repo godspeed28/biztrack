@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Login')
+@section('title', 'Masuk')
 
 @section('content')
-    <h4 class="mb-2">Welcome to Sneat! 👋</h4>
-    <p class="mb-4">Please sign-in to your account and start the adventure</p>
+    <h4 class="mb-2">Selamat datang di BizTrack! 👋</h4>
+    <p class="mb-4">Silakan masuk ke akun anda untuk memulai</p>
 
     <form id="formAuthentication" class="mb-3" action="{{ route('auth.login.submit') }}" method="POST">
         @csrf
@@ -13,30 +13,30 @@
         @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Tutup"></button>
             </div>
         @endif
 
         @if (session('error'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 {{ session('error') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Tutup"></button>
             </div>
         @endif
 
         <!-- Rate Limiting Alert -->
         @if ($errors->has('login') && Str::contains($errors->first('login'), 'Too many login attempts'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                {{ $errors->first('login') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                Terlalu banyak percobaan login. Silakan coba lagi beberapa saat.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Tutup"></button>
             </div>
         @endif
 
         <!-- Login field -->
         <div class="mb-3">
-            <label for="login" class="form-label">Email or Username</label>
+            <label for="login" class="form-label">Email atau Username</label>
             <input type="text" class="form-control @error('login') is-invalid @enderror" id="login" name="login"
-                placeholder="Enter your email or username" autofocus value="{{ old('login') }}" />
+                placeholder="Masukkan email atau username" autofocus value="{{ old('login') }}" />
             @error('login')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -45,16 +45,18 @@
         <!-- Password field -->
         <div class="mb-3 form-password-toggle">
             <div class="d-flex justify-content-between">
-                <label class="form-label" for="password">Password</label>
+                <label class="form-label" for="password">Kata Sandi</label>
                 <a href="{{ route('auth.forgotpass') }}">
-                    <small>Forgot Password?</small>
+                    <small>Lupa Kata Sandi?</small>
                 </a>
             </div>
 
             <div class="input-group input-group-merge">
                 <input type="password" id="password" class="form-control @error('password') is-invalid @enderror"
                     name="password" placeholder="••••••••••••" aria-describedby="password" />
-                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                <span class="input-group-text cursor-pointer">
+                    <i class="bx bx-hide"></i>
+                </span>
                 @error('password')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -66,7 +68,9 @@
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="remember-me" name="remember"
                     {{ old('remember') ? 'checked' : '' }} />
-                <label class="form-check-label" for="remember-me"> Remember Me </label>
+                <label class="form-check-label" for="remember-me">
+                    Ingat Saya
+                </label>
             </div>
         </div>
 
@@ -74,15 +78,15 @@
         <div class="mb-3">
             <button type="submit" class="btn btn-primary d-grid w-100" id="submit-btn">
                 <span class="spinner-border spinner-border-sm me-2 d-none" id="spinner"></span>
-                <span id="btn-text">Sign in</span>
+                <span id="btn-text">Masuk</span>
             </button>
         </div>
     </form>
 
     <p class="text-center">
-        <span>New on our platform?</span>
+        <span>Belum punya akun?</span>
         <a href="{{ route('auth.register') }}">
-            <span>Create an account</span>
+            <span>Daftar sekarang</span>
         </a>
     </p>
 @endsection
@@ -108,7 +112,7 @@
                 });
             });
 
-            // Loading state pada form submit
+            // Loading state saat submit form
             const form = document.getElementById('formAuthentication');
             const submitBtn = document.getElementById('submit-btn');
             const spinner = document.getElementById('spinner');
@@ -116,14 +120,13 @@
 
             if (form && submitBtn) {
                 form.addEventListener('submit', function() {
-                    // Disable button dan show spinner
                     submitBtn.disabled = true;
                     spinner.classList.remove('d-none');
-                    btnText.textContent = 'Signing in...';
+                    btnText.textContent = 'Sedang masuk...';
                 });
             }
 
-            // Auto-focus on login field jika ada error
+            // Auto-focus ke field login jika ada error
             @if ($errors->has('login') || $errors->has('password'))
                 const loginField = document.getElementById('login');
                 if (loginField) {

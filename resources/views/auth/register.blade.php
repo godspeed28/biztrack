@@ -1,23 +1,23 @@
 @extends('layouts.app')
 
-@section('title', 'Register')
+@section('title', 'Daftar')
 
 @section('content')
-    <h4 class="mb-2">Adventure starts here 🚀</h4>
-    <p class="mb-4">Make your app management easy and fun!</p>
+    <h4 class="mb-2">Daftar sekarang! 🚀</h4>
+    <p class="mb-4">Kelola keuangan dan produk UMKM anda dengan lebih mudah!</p>
 
     <!-- Alert Messages -->
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Tutup"></button>
         </div>
     @endif
 
     @if (session('error'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             {{ session('error') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Tutup"></button>
         </div>
     @endif
 
@@ -25,9 +25,9 @@
         @csrf
 
         <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
+            <label for="username" class="form-label">Nama Pengguna</label>
             <input type="text" class="form-control @error('username') is-invalid @enderror" id="username"
-                name="username" placeholder="Enter your username" autofocus value="{{ old('username') }}" />
+                name="username" placeholder="Masukkan nama pengguna" autofocus value="{{ old('username') }}" />
             @error('username')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -36,19 +36,20 @@
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email"
-                placeholder="Enter your email" value="{{ old('email') }}" />
+                placeholder="Masukkan email" value="{{ old('email') }}" />
             @error('email')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="mb-3 form-password-toggle">
-            <label class="form-label" for="password">Password</label>
+            <label class="form-label" for="password">Kata Sandi</label>
             <div class="input-group input-group-merge">
                 <input type="password" id="password" class="form-control @error('password') is-invalid @enderror"
-                    name="password"
-                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
-                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                    name="password" placeholder="••••••••••••" />
+                <span class="input-group-text cursor-pointer">
+                    <i class="bx bx-hide"></i>
+                </span>
             </div>
             @error('password')
                 <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -56,35 +57,25 @@
         </div>
 
         <div class="mb-3 form-password-toggle">
-            <label class="form-label" for="password_confirmation">Confirm Password</label>
+            <label class="form-label" for="password_confirmation">Konfirmasi Kata Sandi</label>
             <div class="input-group input-group-merge">
                 <input type="password" id="password_confirmation" class="form-control" name="password_confirmation"
-                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
-                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                    placeholder="••••••••••••" />
+                <span class="input-group-text cursor-pointer">
+                    <i class="bx bx-hide"></i>
+                </span>
             </div>
         </div>
 
-        <div class="mb-3">
-            <div class="form-check">
-                <input class="form-check-input @error('terms') is-invalid @enderror" type="checkbox" id="terms-conditions"
-                    name="terms" {{ old('terms') ? 'checked' : '' }} />
-                <label class="form-check-label" for="terms-conditions">
-                    I agree to
-                    <a href="javascript:void(0);">privacy policy & terms</a>
-                </label>
-                @error('terms')
-                    <div class="invalid-feedback d-block">{{ $message }}</div>
-                @enderror
-            </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary d-grid w-100">Sign up</button>
+        <button type="submit" class="btn btn-primary d-grid w-100">
+            Daftar
+        </button>
     </form>
 
     <p class="text-center">
-        <span>Already have an account?</span>
-        <a href="{{ route('login') }}"> <!-- Pastikan route name sesuai -->
-            <span>Sign in instead</span>
+        <span>Sudah punya akun?</span>
+        <a href="{{ route('login') }}">
+            <span>Masuk di sini</span>
         </a>
     </p>
 @endsection

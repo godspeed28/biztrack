@@ -24,9 +24,7 @@ class RegisterController extends Controller
             'username' => 'required|string|max:255|unique:users,name',
             'email'    => 'required|email|unique:users,email',
             'password' => 'required|min:6|confirmed',
-            'terms'    => 'accepted'
         ], [
-            'terms.accepted' => 'You must accept the terms and conditions.',
             'username.unique' => 'This username is already taken.',
             'email.unique' => 'This email is already registered.'
         ]);
