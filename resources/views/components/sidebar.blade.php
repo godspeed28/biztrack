@@ -3,8 +3,9 @@
     <div class="app-brand demo mt-3">
         <a href="{{ route('dashboard') }}" class="app-brand-link">
             <span class="app-brand-logo demo">
-                <img src="{{ asset('images/logo.png') }}" width="100" alt="">
+                <img src="{{ asset('images/biztrack-no-bg.png') }}" width="50" alt="">
             </span>
+            <span class="app-brand-text demo fw-semibold p-1" style="color:darkslategray;">BizTrack</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -62,46 +63,64 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Pages</span>
         </li>
+
         <li class="menu-item {{ Request::routeIs('account.settings.*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">Account Settings</div>
+                <i class="menu-icon tf-icons bx bx-package"></i>
+                <div data-i18n="Account Settings">Product & Stock</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('account.settings.account') ? 'active' : '' }}">
                     <a href="{{ route('account.settings.account') }}" class="menu-link">
-                        <div data-i18n="Account">Account</div>
-                    </a>
-                </li>
-                <li class="menu-item {{ Request::routeIs('account.settings.notifications') ? 'active' : '' }}">
-                    <a href="{{ route('account.settings.notifications') }}" class="menu-link">
-                        <div data-i18n="Notifications">Notifications</div>
+                        <div data-i18n="Account">Produk</div>
                     </a>
                 </li>
                 <li class="menu-item {{ Request::routeIs('account.settings.connections') ? 'active' : '' }}">
                     <a href="{{ route('account.settings.connections') }}" class="menu-link">
-                        <div data-i18n="Connections">Connections</div>
+                        <div data-i18n="Connections">Stok</div>
                     </a>
                 </li>
             </ul>
         </li>
-        <li class="menu-item">
+
+        <li class="menu-item {{ Request::routeIs('account.settings.*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">Misc</div>
+                <i class="menu-icon tf-icons bx bx-transfer"></i>
+                <div data-i18n="Account Settings">Transaksi</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="error" class="menu-link">
-                        <div data-i18n="Error">Error</div>
+                <li class="menu-item {{ Request::routeIs('account.settings.account') ? 'active' : '' }}">
+                    <a href="{{ route('account.settings.account') }}" class="menu-link">
+                        <div data-i18n="Account">Kasir</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="error" class="menu-link">
-                        <div data-i18n="Under Maintenance">Under Maintenance</div>
+                <li class="menu-item {{ Request::routeIs('account.settings.connections') ? 'active' : '' }}">
+                    <a href="{{ route('account.settings.connections') }}" class="menu-link">
+                        <div data-i18n="Connections">Riwayat Transaksi</div>
                     </a>
                 </li>
             </ul>
+        </li>
+
+        <li class="menu-item {{ Request::routeIs('account.settings.*') ? 'active open' : '' }}">
+            <a href="{{ route('account.settings.account') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-file"></i>
+                <div data-i18n="Account Settings">Laporan</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ Request::routeIs('account.settings.*') ? 'active open' : '' }}">
+            <a href="{{ route('account.settings.account') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-data"></i>
+                <div data-i18n="Account Settings">Data Pendukung</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ Request::routeIs('account.settings.*') ? 'active open' : '' }}">
+            <a href="{{ route('account.settings.account') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-cog"></i>
+                <div data-i18n="Account Settings">Pengaturan</div>
+            </a>
         </li>
     </ul>
 </aside>

@@ -6,9 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-    <title>@yield('title')</title>
     <meta name="description" content="" />
+
+    <title>BizTrack - @yield('title')</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('sneat/assets/img/favicon/favicon.ico') }}" />
@@ -103,9 +103,10 @@
                                             </g>
                                         </g>
                                     </svg> --}}
-                                <img src="{{ asset('images/logo.png') }}" width="100" alt="">
+                                <img src="{{ asset('images/biztrack-no-bg.png') }}" width="50" alt="">
                                 {{-- </span> --}}
-                                {{-- <span class="app-brand-text demo text-body fw-bolder"></span> --}}
+                                <span class="app-brand-text demo text-body fw-bolder"
+                                    style="color:darkslategray !important;">BizTrack</span>
                             </a>
                         </div>
                         <!-- /Logo -->
